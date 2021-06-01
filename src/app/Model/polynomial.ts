@@ -3,7 +3,8 @@ export class Polynomial {
     equalsTo: string;
 
     quadratic: any{
-        a: number;
-        
+        let a: number;
+        let b: number;
+        let c: number;
     }
 }

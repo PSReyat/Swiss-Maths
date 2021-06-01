@@ -1,3 +1,4 @@
+import { Polynomial } from './../../Model/polynomial';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -13,11 +14,14 @@ export class QuadraticComponent implements OnInit {
 
   }
 
-  quadraticFormula(x: number, y: number, z: number): number{
-    let a: number = x;
-    let b: number = y;
-    let c: number = z;
+  discriminant(a: number, b: number, c: number): any{
     let discriminant: number = Math.pow(b, 2) - (4 * a * c);
+
+    if(discriminant < 0){
+      return "error";
+    }else{
+      return discriminant;
+    }
   }
 
 }
