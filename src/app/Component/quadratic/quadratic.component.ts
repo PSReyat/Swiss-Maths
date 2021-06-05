@@ -1,5 +1,5 @@
 import { Polynomial } from './../../Model/polynomial';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-quadratic',
@@ -8,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuadraticComponent implements OnInit {
 
+  disc: number | string;
+  a: number;
+  b: number;
+  c: number;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -15,17 +20,17 @@ export class QuadraticComponent implements OnInit {
   }
 
   discriminant(a: number, b: number, c: number): any{
-    a = 1;
+    a = 3;
     b = 2; 
     c = 1;
     
-    let discriminant: number = Math.pow(b, 2) - (4 * a * c);
-    console.log(discriminant);
+    this.disc = Math.pow(b, 2) - (4 * a * c);
 
-    if(discriminant < 0){
-      return "error";
+    if(this.disc < 0){
+      this.disc = "error"
+      return this.disc;
     }else{
-      return discriminant;
+      return this.disc;
     }
   }
 

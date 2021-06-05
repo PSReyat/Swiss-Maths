@@ -12,24 +12,40 @@
 
     <div class = "card-body" align = "center">
         <div class = "col-5">
-            <form>
-                <input class = "form-control" required><br>
-                <button class = "btn btn-warning btn-sm">Factorise</button>
+            <div id = "inputs" class = "container">
+                <input id = "a" class = "form-control" style = "width: 50px">
                 &nbsp;
                 &nbsp;
                 &nbsp;
+                <p>x<sup>2</sup></p>
                 &nbsp;
                 &nbsp;
-                <button class = "btn btn-outline-success btn-sm" (click) = "discriminant(1, 2, 1)">Solve</button>
-            </form>
+                &nbsp;
+                <input id = "b" class = "form-control" style = "width: 50px">
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <p>x</p>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <input id = "c" class = "form-control" style = "width: 50px">
+            </div><br>
+            <button class = "btn btn-warning btn-sm">Factorise</button>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <button class = "btn btn-outline-success btn-sm" (click) = "discriminant(1, 2, 1)">Solve</button>
         </div>
 
         <div id = "answer_factorised" class = "col-5">
-            <p></p>
+            
         </div>
 
         <div id = "answer_solved" class = "col-5">
-            
+            {{disc}}
         </div>
 
     </div>
