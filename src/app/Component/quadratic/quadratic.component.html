@@ -11,33 +11,21 @@
     </header>
 
     <div class = "card-body" align = "center">
-        <div class = "col-5">
-            <div id = "inputs" class = "container">
+        <div id = "inputs" class = "col-5">
+            <form>
                 <input id = "a" class = "form-control" style = "width: 50px">
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                <p>x<sup>2</sup></p>
-                &nbsp;
-                &nbsp;
-                &nbsp;
+                <p>  x<sup>2</sup>  </p>
                 <input id = "b" class = "form-control" style = "width: 50px">
+                <p>  x  </p>
+                <input id = "c" class = "form-control" style = "width: 50px"> = 0<br>
+                <button class = "btn btn-warning btn-sm">Factorise</button>
                 &nbsp;
                 &nbsp;
                 &nbsp;
-                <p>x</p>
                 &nbsp;
                 &nbsp;
-                &nbsp;
-                <input id = "c" class = "form-control" style = "width: 50px">
-            </div><br>
-            <button class = "btn btn-warning btn-sm">Factorise</button>
-            &nbsp;
-            &nbsp;
-            &nbsp;
-            &nbsp;
-            &nbsp;
-            <button class = "btn btn-outline-success btn-sm" (click) = "discriminant(1, 2, 1)">Solve</button>
+                <button class = "btn btn-outline-success btn-sm" (click) = "discriminant(1, 2, 1)">Solve</button>
+            </form>
         </div>
 
         <div id = "answer_factorised" class = "col-5">

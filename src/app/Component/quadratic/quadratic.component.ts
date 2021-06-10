@@ -20,17 +20,14 @@ export class QuadraticComponent implements OnInit {
   }
 
   discriminant(a: number, b: number, c: number): any{
-    a = 3;
-    b = 2; 
-    c = 1;
+    a = 1;
+    b = 25; 
+    c = 24;
     
     this.disc = Math.pow(b, 2) - (4 * a * c);
 
     if(this.disc < 0){
       this.disc = "error"
-      return this.disc;
-    }else{
-      return this.disc;
     }
   }
 
