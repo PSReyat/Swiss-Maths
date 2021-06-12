@@ -12,24 +12,32 @@
 
     <div class = "card-body" align = "center">
         <div id = "inputs" class = "col-5">
-            <form>
-                <input id = "a" class = "form-control" style = "width: 50px">
-                <p>  x<sup>2</sup>  </p>
-                <input id = "b" class = "form-control" style = "width: 50px">
-                <p>  x  </p>
-                <input id = "c" class = "form-control" style = "width: 50px"> = 0<br>
-                <button class = "btn btn-warning btn-sm">Factorise</button>
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                <button class = "btn btn-outline-success btn-sm" (click) = "discriminant(1, 2, 1)">Solve</button>
+            <form (ngSubmit) = "discriminant(a, b, c)">
+                <div class = "card-body">
+                    <input id = "a" class = "form-control" name = "a" [(ngModel)] = "a" style = "width: 50px">
+                    <p>  x<sup>2</sup>  </p>
+                </div>
+                <div class = "card-body">
+                    <input id = "b" class = "form-control" name = "b" [(ngModel)] = "b" style = "width: 50px">
+                    <p>  x  </p>
+                </div>
+                <div class = "card-body">
+                    <input id = "c" class = "form-control" name = "c" [(ngModel)] = "c" style = "width: 50px"> = 0
+                </div>
+                <br>
+                <div>
+                    <button class = "btn btn-warning btn-sm">Factorise</button>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <button class = "btn btn-outline-success btn-sm">Solve</button>
+                </div>
             </form>
         </div>
 
         <div id = "answer_factorised" class = "col-5">
-            
         </div>
 
         <div id = "answer_solved" class = "col-5">
