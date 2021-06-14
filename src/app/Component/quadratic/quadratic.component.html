@@ -15,33 +15,34 @@
             <form (ngSubmit) = "discriminant(a, b, c)">
                 <div class = "card-body">
                     <input id = "a" class = "form-control" name = "a" [(ngModel)] = "a" style = "width: 50px">
-                    <p>  x<sup>2</sup>  </p>
+                    <p> 
+                        &nbsp;
+                        x<sup>2</sup>
+                    </p>
                 </div>
                 <div class = "card-body">
                     <input id = "b" class = "form-control" name = "b" [(ngModel)] = "b" style = "width: 50px">
-                    <p>  x  </p>
+                    <p> 
+                        &nbsp;
+                        x
+                    </p>
                 </div>
                 <div class = "card-body">
                     <input id = "c" class = "form-control" name = "c" [(ngModel)] = "c" style = "width: 50px"> = 0
                 </div>
                 <br>
                 <div>
-                    <button class = "btn btn-warning btn-sm">Factorise</button>
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
                     <button class = "btn btn-outline-success btn-sm">Solve</button>
                 </div>
             </form>
         </div>
 
         <div id = "answer_factorised" class = "col-5">
+            (x {{factor1}}) (x {{factor2}})
         </div>
 
         <div id = "answer_solved" class = "col-5">
-            {{disc}}
+            Solutions: x = {{solution1}} or x = {{solution2}}
         </div>
 
     </div>
