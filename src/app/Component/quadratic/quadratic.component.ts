@@ -17,6 +17,8 @@ export class QuadraticComponent implements OnInit {
   b: number;
   c: number;
 
+  solutionDiv: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -32,15 +34,17 @@ export class QuadraticComponent implements OnInit {
       return this.disc;
     }
 
-    this.solution1 = (b + Math.sqrt(this.disc))/(2 * a);
-    console.log((b + Math.sqrt(this.disc)));
-    console.log(Math.sqrt(this.disc) + " b: " + b + " a: " + a);
-    this.solution2 = (b - Math.sqrt(this.disc))/(2 * a);
-    console.log(this.solution2);
+    this.solution1 = (-b + Math.sqrt(this.disc))/(2 * a);
+    this.solution2 = (-b - Math.sqrt(this.disc))/(2 * a);
 
-    this.factor1 = (-1) * this.solution1;
-    this.factor2 = (-1) * this.solution2;
+    //TODO: Find a way to display negatives and positive correctly.
+    this.factor1 = this.solution1;
+    this.factor2 = this.solution2;
 
+  }
+
+  showSolutions(){
+    this.solutionDiv = true;
   }
 
 }

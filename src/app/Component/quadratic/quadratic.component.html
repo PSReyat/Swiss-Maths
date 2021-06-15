@@ -32,17 +32,29 @@
                 </div>
                 <br>
                 <div>
-                    <button class = "btn btn-outline-success btn-sm">Solve</button>
+                    <button class = "btn btn-outline-success btn-sm" (click) = "showSolutions()">Solve</button>
                 </div>
             </form>
         </div>
 
-        <div id = "answer_factorised" class = "col-5">
-            (x {{factor1}}) (x {{factor2}})
+        <div id = "answer_factorised" class = "col-5" *ngIf = "factor1 < 0 && factor2 > 0">
+            (x + {{factor1}}) (x - {{factor2}})
+        </div>
+        <div id = "answer_factorised" class = "col-5" *ngIf = "factor2 < 0 && factor1 > 0">
+            (x - {{factor1}}) (x  + {{factor2}})
+        </div>
+        <div id = "answer_factorised" class = "col-5" *ngIf = "factor1 < 0 && factor2 < 0">
+            (x + {{factor1}}) (x + {{factor2}})
+        </div>
+        <div id = "answer_factorised" class = "col-5" *ngIf = "factor1 > 0 && factor2 > 0">
+            (x - {{factor1}}) (x - {{factor2}})
         </div>
 
-        <div id = "answer_solved" class = "col-5">
+        <div id = "answer_solved" class = "col-5" *ngIf = "solutionDiv && solution1 !== solution2">
             Solutions: x = {{solution1}} or x = {{solution2}}
+        </div>
+        <div id = "answer_solved" class = "col-5" *ngIf = "solutionDiv && solution1 === solution2">
+            Solutions: x = {{solution1}}
         </div>
 
     </div>
