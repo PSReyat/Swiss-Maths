@@ -37,9 +37,19 @@ export class QuadraticComponent implements OnInit {
     this.solution1 = (-b + Math.sqrt(this.disc))/(2 * a);
     this.solution2 = (-b - Math.sqrt(this.disc))/(2 * a);
 
-    //TODO: Find a way to display negatives and positive correctly.
-    this.factor1 = this.solution1;
-    this.factor2 = this.solution2;
+    if(this.solution1 < 0 && this.solution2 > 0){
+      this.factor1 = (-1) * this.solution1;
+      this.factor2 = this.solution2;
+    }else if(this.solution1 > 0 && this.solution2 < 0){
+      this.factor1 = this.solution1;
+      this.factor2 = (-1) * this.solution2;
+    }else if(this.solution1 < 0 && this.solution2 < 0){
+      this.factor1 = (-1) * this.solution1;
+      this.factor2 = (-1) * this.solution2;
+    }else{
+      this.factor1 = this.solution1;
+      this.factor2 = this.solution2;
+    }
 
   }
 

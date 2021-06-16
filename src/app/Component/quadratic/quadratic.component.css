@@ -1,4 +1,4 @@
-.inputs, input, p{
-    float: left;
-    text-align: center;
+#inputs{
+    display: inline-block;
+    vertical-align: top;
 }
