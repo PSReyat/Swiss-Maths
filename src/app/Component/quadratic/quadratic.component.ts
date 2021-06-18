@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Polynomial } from './../../Model/polynomial';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -20,7 +21,7 @@ export class QuadraticComponent implements OnInit {
 
   solutionDiv: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
