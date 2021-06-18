@@ -6,27 +6,22 @@
 </head>
 <body>
 
-    <header>
-        <h4>Quadratic Equation Solver</h4>
-    </header>
-
     <div class = "card-body" align = "center">
         <div id = "inputs" class = "col-5">
             <form (ngSubmit) = "discriminant(a, b, c)">
                 <div class = "card-body">
-                    <input id = "a" class = "form-control" name = "a" [(ngModel)] = "a" style = "width: 50px">
+                    <input id = "a" class = "form-control" name = "a" [(ngModel)] = "a" style = "width: 75px">
                     <p> 
                         &nbsp;
                         x<sup>2</sup>
                     </p>
-                    <input id = "b" class = "form-control" name = "b" [(ngModel)] = "b" style = "width: 50px">
+                    <input id = "b" class = "form-control" name = "b" [(ngModel)] = "b" style = "width: 75px">
                     <p> 
                         &nbsp;
                         x
                     </p>
-                    <input id = "c" class = "form-control" name = "c" [(ngModel)] = "c" style = "width: 50px"> = 0
+                    <input id = "c" class = "form-control" name = "c" [(ngModel)] = "c" style = "width: 75px"><br> = 0
                 </div>
-                <br>
                 <div>
                     <button class = "btn btn-outline-success btn-sm" (click) = "showSolutions()">Solve</button>
                 </div>
@@ -46,11 +41,14 @@
             (x - {{factor1}}) (x - {{factor2}})
         </div>
 
-        <div id = "answer_solved" class = "col-5" *ngIf = "solutionDiv && solution1 !== solution2">
+        <div id = "answer_solved1" class = "col-5" *ngIf = "solutionDiv && solution1 !== solution2 && disc > 0">
             Solutions: x = {{solution1}} or x = {{solution2}}
         </div>
-        <div id = "answer_solved" class = "col-5" *ngIf = "solutionDiv && solution1 === solution2">
+        <div id = "answer_solved2" class = "col-5" *ngIf = "solutionDiv && solution1 === solution2 && disc > 0">
             Solutions: x = {{solution1}}
+        </div>
+        <div id = "error" class = "col-5" *ngIf = "disc < 0">
+            {{error}}
         </div>
 
     </div>

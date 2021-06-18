@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DICalculusComponent } from './dicalculus.component';
+import { IntegrateComponent } from './integrate.component';
 
-describe('DICalculusComponent', () => {
-  let component: DICalculusComponent;
-  let fixture: ComponentFixture<DICalculusComponent>;
+describe('IntegrateComponent', () => {
+  let component: IntegrateComponent;
+  let fixture: ComponentFixture<IntegrateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DICalculusComponent ]
+      declarations: [ IntegrateComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DICalculusComponent);
+    fixture = TestBed.createComponent(IntegrateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
