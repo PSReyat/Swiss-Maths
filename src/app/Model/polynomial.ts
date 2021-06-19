@@ -1,3 +1,11 @@
 export class Polynomial {
-    equation: string[];
+    private equation: string;
+
+    set(equation: string){
+        this.equation = equation;
+    }
+
+    get() {
+        return this.equation;
+    }
 }
