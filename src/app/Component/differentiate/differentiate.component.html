@@ -1,6 +1,6 @@
 <div class = "card-body" align = "center">
     <div class = "col-5">
-        <form (ngSubmit) = "readPolynomial(poly)">
+        <form (ngSubmit) = "parseEquation(poly)">
             <br><input id = "equation" class = "form-control" name = "equation" [(ngModel)] = "poly"/><br>
             <button class = "btn btn-outline-success">Differentiate</button>
         </form>

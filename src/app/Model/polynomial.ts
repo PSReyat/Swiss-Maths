@@ -1,11 +1,28 @@
 export class Polynomial {
     private equation: string;
+    private parsedEquation: Map<Number, String>; 
+    private i: number;
 
-    set(equation: string){
+    constructor(){
+        this.equation = "";
+        this.parsedEquation = new Map<Number, String>();
+        this.i = 0;
+    }
+
+    setParsed(parsed: string){
+        this.parsedEquation.set(this.i, parsed);
+        this.i++;
+    }
+
+    getParsed(){
+        return this.parsedEquation;
+    }
+
+    setEquation(equation: string){
         this.equation = equation;
     }
 
-    get() {
+    getEquation() {
         return this.equation;
     }
 }

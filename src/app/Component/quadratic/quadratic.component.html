@@ -41,10 +41,10 @@
             (x - {{factor1}}) (x - {{factor2}})
         </div>
 
-        <div id = "answer_solved1" class = "col-5" *ngIf = "solutionDiv && solution1 !== solution2 && disc > 0">
+        <div id = "answer_solved1" class = "col-5" *ngIf = "solutionDiv && solution1 !== solution2 && disc >= 0">
             Solutions: x = {{solution1}} or x = {{solution2}}
         </div>
-        <div id = "answer_solved2" class = "col-5" *ngIf = "solutionDiv && solution1 === solution2 && disc > 0">
+        <div id = "answer_solved2" class = "col-5" *ngIf = "solutionDiv && solution1 === solution2 && disc >= 0">
             Solutions: x = {{solution1}}
         </div>
         <div id = "error" class = "col-5" *ngIf = "disc < 0">
