@@ -22,6 +22,18 @@ export class DifferentiateComponent implements OnInit {
 
   differentiate(poly: string){
     
+    for(let i = 0; i < poly.length; i++){
+
+      let x = 0;
+      let y = 0;
+      
+      if(poly.charAt(i) === "x"){
+        y = parseInt(poly.charAt(i + 1));
+        x = parseInt(poly.charAt(i - 1));
+      }
+
+    }
+
   }
 
   parseEquation(poly: string){
