@@ -23,28 +23,36 @@ export class DifferentiateComponent implements OnInit {
   differentiate(poly: string){
     let x = 0;
     let y = 0;
-    let term: string;
+    let term: string = "";
     let length: number = this.polynomial.getParsed().size;
     
     for(let i = 0; i < length; i++){
 
       term = this.polynomial.getParsed().get(i);
 
-      for(let j = 0; j < term.length; j++){
+      if(!term.charAt(0).match(/[a-z]/)){
+        x = parseInt(term.charAt(0));
+      }else{
+        x = 1;
+      }
 
-        if(!term.charAt(0).match(/[a-z]/) || term.charAt(0) === "x"){
-          x = parseInt(term.charAt(0));
-        }
+      if(!term.charAt(term.length - 1).match(/[a-z]/)){
+        y = parseInt(term.charAt(term.length - 1));
+      }else{
+        y = 1;
+      }
 
-        if(!term.charAt(term.length - 1).match(/[a-z]/) || term.charAt(0) === "x"){
-          y = parseInt(term.charAt(term.length - 1));
-        }
+      x = x * y;
+      y = y - 1;
 
-        y = y - 1;
-        x = x * y;
+      if(x !== 0){
+        this.differential += x.toString() + "x^" + y.toString();
+      }else if(y === 0){
+        this.differential += x.toString();
+      }
 
-        this.differential = x.toString() + "x^" + y.toString();
-
+      if(i !== length - 1){
+        this.differential += " + ";
       }
 
     }
