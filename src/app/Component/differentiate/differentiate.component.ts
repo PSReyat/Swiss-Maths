@@ -21,15 +21,30 @@ export class DifferentiateComponent implements OnInit {
   }
 
   differentiate(poly: string){
+    let x = 0;
+    let y = 0;
+    let term: string;
+    let length: number = this.polynomial.getParsed().size;
     
-    for(let i = 0; i < poly.length; i++){
+    for(let i = 0; i < length; i++){
 
-      let x = 0;
-      let y = 0;
-      
-      if(poly.charAt(i) === "x"){
-        y = parseInt(poly.charAt(i + 1));
-        x = parseInt(poly.charAt(i - 1));
+      term = this.polynomial.getParsed().get(i);
+
+      for(let j = 0; j < term.length; j++){
+
+        if(!term.charAt(0).match(/[a-z]/) || term.charAt(0) === "x"){
+          x = parseInt(term.charAt(0));
+        }
+
+        if(!term.charAt(term.length - 1).match(/[a-z]/) || term.charAt(0) === "x"){
+          y = parseInt(term.charAt(term.length - 1));
+        }
+
+        y = y - 1;
+        x = x * y;
+
+        this.differential = x.toString() + "x^" + y.toString();
+
       }
 
     }
@@ -53,6 +68,8 @@ export class DifferentiateComponent implements OnInit {
       }
 
     }
+
+    this.differentiate(poly);
 
   }
 
