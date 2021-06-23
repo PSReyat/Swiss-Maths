@@ -10,14 +10,13 @@ import { ParsedEvent } from '@angular/compiler';
 })
 export class DifferentiateComponent implements OnInit {
 
-  polynomial: Polynomial;
+  polynomial: Polynomial = new Polynomial();
   poly: string;
   differential: string;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.polynomial = new Polynomial();
   }
 
   differentiate(poly: string){
@@ -45,7 +44,7 @@ export class DifferentiateComponent implements OnInit {
       x = x * y;
       y = y - 1;
 
-      if(x !== 0){
+      if(x !== 0 && y !== 0){
         this.differential += x.toString() + "x^" + y.toString();
       }else if(y === 0){
         this.differential += x.toString();
