@@ -11,8 +11,8 @@ import { ParsedEvent } from '@angular/compiler';
 export class DifferentiateComponent implements OnInit {
 
   polynomial: Polynomial = new Polynomial();
-  poly: string;
-  differential: string;
+  poly: string = "";
+  differential: string = "";
 
   constructor() { }
 
@@ -21,36 +21,63 @@ export class DifferentiateComponent implements OnInit {
 
   differentiate(poly: string){
     let x = 0;
+    let xParse = "";
     let y = 0;
+    let yParse = "";
+    let xVarLoci = 0;
     let term: string = "";
     let length: number = this.polynomial.getParsed().size;
+
+    this.parseEquation(poly);
     
     for(let i = 0; i < length; i++){
 
       term = this.polynomial.getParsed().get(i);
 
-      if(!term.charAt(0).match(/[a-z]/)){
-        x = parseInt(term.charAt(0));
-      }else{
-        x = 1;
+      //Need to change this part of the code (1A)
+      for(let j = 0; j < term.length; j++){
+
+        if(term.charAt(0) === "x"){
+          x = 1;
+          break;
+        }
+
+        if(!term.charAt(j).match(/[a-z]/) ){
+          xParse += term.charAt(j);
+        }else{
+          xVarLoci = j;
+          break;
+        }
       }
 
-      if(!term.charAt(term.length - 1).match(/[a-z]/)){
-        y = parseInt(term.charAt(term.length - 1));
-      }else{
-        y = 1;
+      for(let k = xVarLoci; k < term.length; k++){
+        if(!term.charAt(k).match(/[a-z]/)){
+          yParse += term.charAt(k);
+        }else{
+          y = 1;
+        }
       }
+      //(1A)
+
+      x = parseInt(xParse);
+      y = parseInt(yParse);
 
       x = x * y;
       y = y - 1;
 
       if(x !== 0 && y !== 0){
-        this.differential += x.toString() + "x^" + y.toString();
+        
+        if(y !== 1){
+          this.differential += x.toString() + "x^" + y.toString();
+        }else{
+          this.differential += x.toString() + "x";
+        }
+
       }else if(y === 0){
         this.differential += x.toString();
       }
 
-      if(i !== length - 1){
+      if(i != length - 1){
         this.differential += " + ";
       }
 
@@ -76,8 +103,6 @@ export class DifferentiateComponent implements OnInit {
 
     }
 
-    this.differentiate(poly);
-
   }
 
   normalisePoly(poly: string): string{
@@ -93,5 +118,5 @@ export class DifferentiateComponent implements OnInit {
     return poly;
 
   }
-
 }
+
