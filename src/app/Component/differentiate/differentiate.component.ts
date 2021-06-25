@@ -42,17 +42,21 @@ export class DifferentiateComponent implements OnInit {
           break;
         }
 
-        if(!term.charAt(j).match(/[a-z]/) ){
+        if(!term.charAt(j).match(/[a-z^]/) && term.charAt(j) !== "^"){
           xParse += term.charAt(j);
+          console.log("xParse: " + xParse);
         }else{
           xVarLoci = j;
+          console.log("xVariLoci: " + xVarLoci);
           break;
         }
       }
+      console.log("x: " + x);
 
       for(let k = xVarLoci; k < term.length; k++){
-        if(!term.charAt(k).match(/[a-z]/)){
+        if(!term.charAt(k).match(/[a-z]/) && term.charAt(k) !== "^"){
           yParse += term.charAt(k);
+          console.log("yParse: " + yParse);
         }else{
           y = 1;
         }
@@ -60,7 +64,9 @@ export class DifferentiateComponent implements OnInit {
       //(1A)
 
       x = parseInt(xParse);
+      console.log("int x = " + x);
       y = parseInt(yParse);
+      console.log("int y = " + y);
 
       x = x * y;
       y = y - 1;
@@ -80,6 +86,11 @@ export class DifferentiateComponent implements OnInit {
       if(i != length - 1){
         this.differential += " + ";
       }
+
+      xParse = "";
+      yParse = "";
+
+      console.log("differentiated: " + this.differential);
 
     }
 
