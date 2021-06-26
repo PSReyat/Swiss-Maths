@@ -42,7 +42,7 @@ export class DifferentiateComponent implements OnInit {
           break;
         }
 
-        if(!term.charAt(j).match(/[a-z^]/) && term.charAt(j) !== "^"){
+        if(!term.charAt(j).match(/[a-z^]/)){
           xParse += term.charAt(j);
           console.log("xParse: " + xParse);
         }else{
@@ -51,22 +51,31 @@ export class DifferentiateComponent implements OnInit {
           break;
         }
       }
-      console.log("x: " + x);
+      console.log("1 - x: " + x);
 
       for(let k = xVarLoci; k < term.length; k++){
-        if(!term.charAt(k).match(/[a-z]/) && term.charAt(k) !== "^"){
+        if(!term.charAt(k).match(/[a-z]/)){
           yParse += term.charAt(k);
           console.log("yParse: " + yParse);
         }else{
           y = 1;
         }
       }
+      console.log("2 - x: " + x);
       //(1A)
 
-      x = parseInt(xParse);
+      console.log("int y-1= " + y);
+
+      if(x !== 1){
+        x = parseInt(xParse);
+      }
       console.log("int x = " + x);
-      y = parseInt(yParse);
-      console.log("int y = " + y);
+      if(y === undefined){
+        y = 1;
+      }else{
+        y = parseInt(yParse);
+      }
+      console.log("int y-2 = " + y);
 
       x = x * y;
       y = y - 1;
