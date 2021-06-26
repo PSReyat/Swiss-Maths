@@ -61,16 +61,17 @@ export class DifferentiateComponent implements OnInit {
           y = 1;
         }
       }
-      console.log("2 - x: " + x);
       //(1A)
 
-      console.log("int y-1= " + y);
+      console.log("2 - x =  " + x);
+      console.log("int y-1 = " + y);
 
       if(x !== 1){
         x = parseInt(xParse);
       }
       console.log("int x = " + x);
-      if(y === undefined){
+
+      if(yParse === ""){
         y = 1;
       }else{
         y = parseInt(yParse);
@@ -82,7 +83,7 @@ export class DifferentiateComponent implements OnInit {
 
       if(x !== 0 && y !== 0){
         
-        if(y !== 1){
+        if(y > 1){
           this.differential += x.toString() + "x^" + y.toString();
         }else{
           this.differential += x.toString() + "x";
