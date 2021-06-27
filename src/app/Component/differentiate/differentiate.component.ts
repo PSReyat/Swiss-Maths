@@ -93,7 +93,7 @@ export class DifferentiateComponent implements OnInit {
         this.differential += x.toString();
       }
 
-      if(i != length - 1){
+      if(i !== length - 1){
         this.differential += " + ";
       }
 
