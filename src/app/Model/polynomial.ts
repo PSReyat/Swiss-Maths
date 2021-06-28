@@ -3,15 +3,10 @@ export class Polynomial {
     private parsedEquation: Map<number, string>; 
     private i: number;
 
-    constructor(){
+    constructor(poly?: string){
         this.equation = "";
         this.parsedEquation = new Map<number, string>();
         this.i = 0;
-    }
-
-    setParsed(parsed: string){
-        this.parsedEquation.set(this.i, parsed);
-        this.i++;
     }
 
     getParsed(){
@@ -25,4 +20,44 @@ export class Polynomial {
     getEquation() {
         return this.equation;
     }
+
+    parseEquation(poly: string){
+
+        poly = this.normalisePoly(poly);
+        let subString: string = "";
+    
+        for(let i = 0; i < poly.length; i++){
+    
+          if(poly.charAt(i) !== "+"){
+            console.log("1st if: " + poly.charAt(i));
+            subString += poly.charAt(i);
+            console.log("subString: " + subString);
+          }
+          // || poly.charAt(i) === poly.charAt(poly.length - 1)
+          if(poly.charAt(i) === "+"){
+            console.log("second if: " + poly.charAt(i));
+            this.parsedEquation.set(this.i, subString);
+            subString = "";
+            this.i++;
+          }
+    
+        }
+    
+      }
+    
+      normalisePoly(poly: string): string{
+    
+        for(let i = 0; i < poly.length; i++){
+    
+          if(poly.charAt(i) === " "){
+            poly = poly.replace(" ", "");
+          }
+    
+        }
+
+        console.log(poly);
+    
+        return poly;
+    
+      }
 }
