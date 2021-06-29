@@ -87,8 +87,6 @@ export class DifferentiateComponent implements OnInit {
         this.differential += " + ";
       }
 
-      this.polynomial.setEquation(this.differential);
-
       xParse = "";
       yParse = "";
 

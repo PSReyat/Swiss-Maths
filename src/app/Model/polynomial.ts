@@ -29,13 +29,10 @@ export class Polynomial {
         for(let i = 0; i < poly.length; i++){
     
           if(poly.charAt(i) !== "+"){
-            console.log("1st if: " + poly.charAt(i));
             subString += poly.charAt(i);
-            console.log("subString: " + subString);
           }
-          // || poly.charAt(i) === poly.charAt(poly.length - 1)
-          if(poly.charAt(i) === "+"){
-            console.log("second if: " + poly.charAt(i));
+          
+          if(poly.charAt(i) === "+" || i === poly.length - 1){
             this.parsedEquation.set(this.i, subString);
             subString = "";
             this.i++;
@@ -54,8 +51,6 @@ export class Polynomial {
           }
     
         }
-
-        console.log(poly);
     
         return poly;
     
