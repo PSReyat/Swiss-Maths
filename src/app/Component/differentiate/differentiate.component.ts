@@ -42,8 +42,9 @@ export class DifferentiateComponent implements OnInit {
           break;
         }
 
-        if(!term.charAt(j).match(/[a-z^]/)){
+        if(!term.charAt(j).match(/[a-z^]/) || term.charAt(j) === "-"){
           xParse += term.charAt(j);
+          xVarLoci = j;
         }else{
           xVarLoci = j;
           break;
@@ -51,7 +52,13 @@ export class DifferentiateComponent implements OnInit {
       }
 
       for(let k = xVarLoci; k < term.length; k++){
-        if(!term.charAt(k).match(/[a-z]/)){
+
+        if(!term.includes("x")){
+          y = 0;
+          break;
+        }
+
+        if(!term.charAt(k).match(/[a-z]/) || term.charAt(k) === "-"){
           yParse += term.charAt(k);
         }else{
           y = 1;
@@ -62,7 +69,9 @@ export class DifferentiateComponent implements OnInit {
         x = parseInt(xParse);
       }
 
-      if(yParse === ""){
+      if(yParse === "" && !term.includes("x")){
+        y = 0;
+      }else if(yParse === "" && term.includes("x")){
         y = 1;
       }else{
         y = parseInt(yParse);

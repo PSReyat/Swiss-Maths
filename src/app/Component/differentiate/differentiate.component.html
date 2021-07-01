@@ -7,6 +7,8 @@
     </div>
     <br>
     <div class = "col-5" align = "center">
-        {{differential}}
+        <p *ngIf = "differential !== ''">
+            {{differential}}
+        </p>
     </div>
 </div>
