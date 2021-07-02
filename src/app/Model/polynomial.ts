@@ -1,6 +1,6 @@
 export class Polynomial {
     private equation: string;
-    private parsedEquation: Map<number, string>; 
+    private parsedEquation: Map<number, string>;
     private i: number;
 
     constructor(poly?: string){

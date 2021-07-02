@@ -82,10 +82,10 @@ export class DifferentiateComponent implements OnInit {
 
       if(x !== 0 && y !== 0){
         
-        if(y > 1){
-          this.differential += x.toString() + "x^" + y.toString();
-        }else{
+        if(y === 1){
           this.differential += x.toString() + "x";
+        }else{
+          this.differential += x.toString() + "x^" + y.toString();
         }
 
       }else if(y === 0){
