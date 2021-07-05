@@ -27,7 +27,6 @@ export class DifferentiateComponent implements OnInit {
     let xVarLoci = 0;
     let term: string = "";
     let length: number = this.polynomial.getParsed().size;
-    this.differential = "";
 
     this.polynomial.parseEquation(poly);
     
@@ -98,6 +97,8 @@ export class DifferentiateComponent implements OnInit {
 
       xParse = "";
       yParse = "";
+
+      console.log(this.differential);
 
     }
 
