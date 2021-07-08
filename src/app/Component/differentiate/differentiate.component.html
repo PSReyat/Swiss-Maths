@@ -1,14 +1,17 @@
 <div class = "card-body" align = "center">
     <div class = "col-5">
-        <form (ngSubmit) = "differentiate(poly)">
+        <form (ngSubmit) = "differentiate(poly)" name = "equation">
             <br><input id = "equation" class = "form-control" name = "equation" [(ngModel)] = "poly"/><br>
             <button class = "btn btn-outline-success">Differentiate</button>
         </form>
     </div>
     <br>
     <div class = "col-5" align = "center">
-        <p *ngIf = "differential !== ''">
-            {{differential}}
+        <p>
+            {{poly}}
+        </p>
+        <p>
+           {{differential}}
         </p>
     </div>
 </div>
