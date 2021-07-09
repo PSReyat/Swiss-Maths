@@ -1,5 +1,5 @@
 import { Polynomial } from './../../Model/polynomial';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { stringify } from '@angular/compiler/src/util';
 import { ParsedEvent } from '@angular/compiler';
 
@@ -28,6 +28,7 @@ export class DifferentiateComponent implements OnInit {
     let xVarLoci = 0;
     let term: string = "";
     let length: number = this.polynomial.getParsed().size;
+    
     this.poly = "";
     this.differential = "";
     console.log("On top: " + this.differential);
@@ -106,9 +107,13 @@ export class DifferentiateComponent implements OnInit {
 
     console.log("Bottom: " + this.differential);
 
+    console.log("After reset: " + this.differential);
+
     if(this.differential.endsWith(" + ")){
       this.differential = this.differential.substring(0, this.differential.length - 3)
     }
+
+    this.polynomial.deleteParsed();
 
   }
 

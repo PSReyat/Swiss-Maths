@@ -1,10 +1,8 @@
 export class Polynomial {
-    private equation: string;
     private parsedEquation: Map<number, string>;
     private i: number;
 
     constructor(poly?: string){
-        this.equation = "";
         this.parsedEquation = new Map<number, string>();
         this.i = 0;
     }
@@ -13,12 +11,8 @@ export class Polynomial {
         return this.parsedEquation;
     }
 
-    setEquation(equation: string){
-        this.equation = equation;
-    }
-
-    getEquation() {
-        return this.equation;
+    deleteParsed(){
+      this.parsedEquation.clear();
     }
 
     parseEquation(poly: string){
