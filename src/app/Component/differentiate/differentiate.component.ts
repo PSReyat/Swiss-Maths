@@ -21,8 +21,6 @@ export class DifferentiateComponent implements OnInit {
   }
 
   differentiate(poly: string){
-    console.log("On top: " + this.differential);
-    this.differential = "";
     let x = 0;
     let xParse = "";
     let y = 0;
@@ -31,6 +29,8 @@ export class DifferentiateComponent implements OnInit {
     let term: string = "";
     let length: number = this.polynomial.getParsed().size;
     this.poly = "";
+    this.differential = "";
+    console.log("On top: " + this.differential);
 
     this.polynomial.parseEquation(poly);
     
@@ -105,6 +105,10 @@ export class DifferentiateComponent implements OnInit {
     }
 
     console.log("Bottom: " + this.differential);
+
+    if(this.differential.endsWith(" + ")){
+      this.differential = this.differential.substring(0, this.differential.length - 3)
+    }
 
   }
 
