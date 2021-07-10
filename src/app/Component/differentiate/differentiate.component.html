@@ -1,6 +1,8 @@
 <div class = "card-body" align = "center">
     <p>Enter the equation like this: x6 + 5x5 + 2x + 7 </p>
     <p>Please <font color = "red">DO NOT</font> enter it like: x^6 + 5x^5 + 2x + 7</p>
+    <p>For negative terms, write like this: x6 + -10x8 + -9x9 + 10</p>
+    <p>Please <font color = "red">DO NOT</font> enter is like x6 - 10x8 - 9x9 + 10</p>
     <div class = "col-5">
         <form (ngSubmit) = "differentiate(poly)">
             <br><input id = "equation" class = "form-control" name = "equation" [(ngModel)] = "poly"/><br>

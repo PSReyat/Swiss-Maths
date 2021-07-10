@@ -12,7 +12,6 @@ export class DifferentiateComponent implements OnInit {
 
   polynomial: Polynomial = new Polynomial();
   poly: string = "";
-  displayPoly: string = "";
   differential: string = "";
 
   constructor() { }
@@ -21,6 +20,7 @@ export class DifferentiateComponent implements OnInit {
   }
 
   differentiate(poly: string){
+    this.polynomial.parseEquation(poly);
     let x = 0;
     let xParse = "";
     let y = 0;
@@ -31,10 +31,7 @@ export class DifferentiateComponent implements OnInit {
     
     this.poly = "";
     this.differential = "";
-    console.log("On top: " + this.differential);
 
-    this.polynomial.parseEquation(poly);
-    
     for(let i = 0; i < length; i++){
 
       term = this.polynomial.getParsed().get(i);
@@ -46,7 +43,7 @@ export class DifferentiateComponent implements OnInit {
           break;
         }
 
-        if(!term.charAt(j).match(/[a-z^]/) || term.charAt(j) === "-"){
+        if(!term.charAt(j).match(/[a-z]/) || term.charAt(j) === "-"){
           xParse += term.charAt(j);
           xVarLoci = j;
         }else{
@@ -70,7 +67,7 @@ export class DifferentiateComponent implements OnInit {
       }
 
       if(x !== 1){
-        x = parseInt(xParse);
+        x = parseFloat(xParse);
       }
 
       if(yParse === "" && !term.includes("x")){
@@ -78,7 +75,7 @@ export class DifferentiateComponent implements OnInit {
       }else if(yParse === "" && term.includes("x")){
         y = 1;
       }else{
-        y = parseInt(yParse);
+        y = parseFloat(yParse);
       }
 
       x = x * y;
@@ -105,12 +102,12 @@ export class DifferentiateComponent implements OnInit {
 
     }
 
-    console.log("Bottom: " + this.differential);
-
-    console.log("After reset: " + this.differential);
-
     if(this.differential.endsWith(" + ")){
       this.differential = this.differential.substring(0, this.differential.length - 3)
+    }
+
+    if(this.differential.includes(" + -")){
+      this.differential = this.differential.replace(" + -", " - ");
     }
 
     this.polynomial.deleteParsed();
@@ -118,4 +115,3 @@ export class DifferentiateComponent implements OnInit {
   }
 
 }
-

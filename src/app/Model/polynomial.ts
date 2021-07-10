@@ -8,11 +8,12 @@ export class Polynomial {
     }
 
     getParsed(){
-        return this.parsedEquation;
+      return this.parsedEquation;
     }
 
     deleteParsed(){
       this.parsedEquation.clear();
+      this.i = 0;
     }
 
     parseEquation(poly: string){
