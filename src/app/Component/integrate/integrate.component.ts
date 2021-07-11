@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./integrate.component.css']
 })
 export class IntegrateComponent implements OnInit {
+  poly: string = "";
+  integral: string = "";
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  integrate(poly: string){
+
   }
 
 }

@@ -10,9 +10,11 @@ import { ParsedEvent } from '@angular/compiler';
 })
 export class DifferentiateComponent implements OnInit {
 
-  polynomial: Polynomial = new Polynomial();
+  private polynomial: Polynomial = new Polynomial();
   poly: string = "";
-  differential: string = "";
+  displayPoly: string = "";
+  displayDifferential: string = "";
+  private differential: string = "";
 
   constructor() { }
 
@@ -109,6 +111,14 @@ export class DifferentiateComponent implements OnInit {
     if(this.differential.includes(" + -")){
       this.differential = this.differential.replace(" + -", " - ");
     }
+
+    if(poly !== ""){
+      this.polynomial.setEquation(poly);
+      this.polynomial.setGradient(this.differential);
+    }
+
+    this.displayPoly = this.polynomial.getEquation();
+    this.displayDifferential = this.polynomial.getGradient();
 
     this.polynomial.deleteParsed();
 
