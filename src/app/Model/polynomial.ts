@@ -59,6 +59,7 @@ export class Polynomial {
   }
   //Differentiation functionality
 
+  //Getting rid of spaces
   normalisePoly(poly: string): string{
 
     for(let i = 0; i < poly.length; i++){

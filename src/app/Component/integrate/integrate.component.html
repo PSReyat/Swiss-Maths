@@ -1,12 +1,18 @@
 <div class = "card-body" align = "center">
     <div class = "col-5">
         <form (ngSubmit) = "integrate(poly)">
+            <label>Upper Limit: </label>
+            <input id = "upper_limit" class = "form-control" style = "width: 50px;" name = "upper_limit" [(ngModel)] = "upperLimit"/>
             <br><input id = "equation" class = "form-control" name = "equation" [(ngModel)] = "poly"/><br>
-            <button class = "btn btn-outline-success" type="submit" *ngIf = "poly !== ''">Integrate</button>
+            <label>Lower Limit: </label>
+            <input id = "lower_limit" class = "form-control" style = "width: 50px;" name = "lower_limit" [(ngModel)] = "lowerLimit"/>
+            <br><button class = "btn btn-outline-success" type="submit" *ngIf = "poly !== ''">Integrate</button>
         </form>
     </div>
     <br>
     <div class = "col-5">
+
+        {{displayIntegral}}
         
     </div>
 
