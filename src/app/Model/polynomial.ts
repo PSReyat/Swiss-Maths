@@ -1,12 +1,16 @@
 export class Polynomial {
   private equation: string;
   private gradient: string;
+  private integral: string;
+  private area: number;
   private parsedEquation: Map<number, string>;
   private i: number;
 
   constructor(poly?: string){
     this.equation = "";
     this.gradient = "";
+    this.integral = "";
+    this.area = 0;
     this.parsedEquation = new Map<number, string>();
     this.i = 0;
   }
@@ -17,6 +21,22 @@ export class Polynomial {
 
   setGradient(gradient: string){
     this.gradient = gradient;
+  }
+
+  getIntegral(){
+    return this.integral;
+  }
+
+  setIntegral(area: string){
+    this.integral = area;
+  }
+
+  getArea(){
+    return this.area;
+  }
+
+  setArea(area: number){
+    this.area = area;
   }
 
   getEquation(){

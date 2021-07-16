@@ -1,4 +1,9 @@
 <div class = "card-body" align = "center">
+    <p>NOTE: this calculator doesn't deal with 1/x (x<sup>-1</sup>) terms</p>
+    <p>Enter the equation like this: <font color = "blue">x6 + 5x5 + 2x + 7</font></p>
+    <p>Please <font color = "red">DO NOT</font> enter it like: x^6 + 5x^5 + 2x + 7</p>
+    <p>For negative terms, write like this: <font color = "blue">x6 + -10x8 + -9x9 + 10</font></p>
+    <p>Please <font color = "red">DO NOT</font> enter it like: x6 - 10x8 - 9x9 + 10</p>
     <div class = "col-5">
         <form (ngSubmit) = "integrate(poly)">
             <label>Upper Limit: </label>
@@ -11,9 +16,15 @@
     </div>
     <br>
     <div class = "col-5">
-
-        {{displayIntegral}}
-        
+        <p>
+            Equation entered: {{displayPoly}}
+        </p>
+        <p>
+            (Indefinite) Integral: {{displayIntegral}}
+        </p>
+        <p>
+            (Definite) Integral: {{displayDefinite}}
+        </p>
     </div>
 
 </div>
