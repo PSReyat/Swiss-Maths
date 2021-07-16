@@ -38,6 +38,7 @@ export class IntegrateComponent implements OnInit {
     let term = "";
     let length = this.polynomial.getParsed().size;
     
+    //parsing and integration functionality
     for(let i = 0; i < length; i++){
       term = this.polynomial.getParsed().get(i);
 
@@ -101,6 +102,7 @@ export class IntegrateComponent implements OnInit {
       yParse = "";
 
     }
+    //parsing and integration functionality
 
     this.integral += " + c";
 

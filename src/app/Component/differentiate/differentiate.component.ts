@@ -34,6 +34,7 @@ export class DifferentiateComponent implements OnInit {
     this.poly = "";
     this.differential = "";
 
+    //parsing and differentiation functionality
     for(let i = 0; i < length; i++){
 
       term = this.polynomial.getParsed().get(i);
@@ -103,6 +104,7 @@ export class DifferentiateComponent implements OnInit {
       yParse = "";
 
     }
+    //parsing and differentiation functionality
 
     if(this.differential.endsWith(" + ")){
       this.differential = this.differential.substring(0, this.differential.length - 3)

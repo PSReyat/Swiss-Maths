@@ -8,6 +8,8 @@ import { QuadraticComponent } from './Component/quadratic/quadratic.component';
 import { BinomialComponent } from './Component/binomial/binomial.component';
 import { DifferentiateComponent } from './Component/differentiate/differentiate.component';
 import { IntegrateComponent } from './Component/integrate/integrate.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { IntegrateComponent } from './Component/integrate/integrate.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -56,7 +56,6 @@ export class Polynomial {
     this.i = 0;
   }
 
-  //Differentiation functionality
   parseEquation(poly: string){
 
     poly = this.normalisePoly(poly);
@@ -77,7 +76,6 @@ export class Polynomial {
     }
   
   }
-  //Differentiation functionality
 
   //Getting rid of spaces
   normalisePoly(poly: string): string{

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "swiss-maths"
+  },
+  "targets": {
+    "swiss-maths": {
+      "hosting": {
+        "CalculusSolver": [
+          "swiss-maths"
+        ]
+      }
+    }
+  }
+}
