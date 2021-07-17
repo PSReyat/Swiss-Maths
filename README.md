@@ -4,6 +4,12 @@ This is an application I designed in Angular for GCSE and A-level Maths student 
 ## Link to website
 http://swiss-maths.web.app/
 
+## What it includes
+- Quadratic equation factoriser and solver
+- Differentiator
+- Integrator
+- Binomial Expander - coming soon
+
 ## Technologies used
 - Angular
 - Bootstrap 4
