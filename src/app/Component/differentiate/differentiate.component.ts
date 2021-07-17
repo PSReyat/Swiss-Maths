@@ -39,6 +39,7 @@ export class DifferentiateComponent implements OnInit {
 
       term = this.polynomial.getParsed().get(i);
 
+      //Parsing the coefficient
       for(let j = 0; j < term.length; j++){
 
         if(term.charAt(0) === "x"){
@@ -54,7 +55,9 @@ export class DifferentiateComponent implements OnInit {
           break;
         }
       }
+      //Parsing the coefficient
 
+      //Parsing the power
       for(let k = xVarLoci; k < term.length; k++){
 
         if(!term.includes("x")){
@@ -68,7 +71,9 @@ export class DifferentiateComponent implements OnInit {
           y = 1;
         }
       }
+      //Parsing the power
 
+      //Turning xParse and yParse from string to integer
       if(x !== 1){
         x = parseFloat(xParse);
       }
@@ -80,10 +85,12 @@ export class DifferentiateComponent implements OnInit {
       }else{
         y = parseFloat(yParse);
       }
+      //Turning xParse and yParse from string to integer
 
       x = x * y;
       y = y - 1;
 
+      //Covering different situations
       if(x !== 0 && y !== 0){
         
         if(y === 1){
@@ -95,6 +102,7 @@ export class DifferentiateComponent implements OnInit {
       }else if(y === 0){
         this.differential += x.toString();
       }
+      //Covering different situations
 
       if(i !== length - 1){
         this.differential += " + ";
@@ -106,6 +114,7 @@ export class DifferentiateComponent implements OnInit {
     }
     //parsing and differentiation functionality
 
+    //Cleaning up
     if(this.differential.endsWith(" + ")){
       this.differential = this.differential.substring(0, this.differential.length - 3)
     }
@@ -113,6 +122,7 @@ export class DifferentiateComponent implements OnInit {
     if(this.differential.includes(" + -")){
       this.differential = this.differential.replace(" + -", " - ");
     }
+    //Cleaning up
 
     if(poly !== ""){
       this.polynomial.setEquation(poly);

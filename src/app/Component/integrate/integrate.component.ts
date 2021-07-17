@@ -41,7 +41,8 @@ export class IntegrateComponent implements OnInit {
     //parsing and integration functionality
     for(let i = 0; i < length; i++){
       term = this.polynomial.getParsed().get(i);
-
+      
+      //Parsing the coefficient
       for(let j = 0; j < term.length; j++){
 
         if(term.charAt(0) === "x"){
@@ -57,13 +58,17 @@ export class IntegrateComponent implements OnInit {
         }
 
       }
+      //Parsing the coefficient
 
+      //Parsing the power
       for(let k = xVarLoci; k < term.length; k++){
         if(!term.charAt(k).match(/[a-z]/)){
           yParse += term.charAt(k);
         }
       }
+      //Parsing the power
 
+      //String to integer for xParse and yParse
       if(xParse !== ""){
         x = parseFloat(xParse);
       }
@@ -75,23 +80,29 @@ export class IntegrateComponent implements OnInit {
       }else if(!term.includes("x")){
         y = 0;
       }
+      //String to integer for xParse and yParse
 
       y = y + 1;
 
+      //Covering different situations
+      //When x and y are < 0
       if(x < 0 && y < 0){
         coeff = (x * -1).toString() + "/" + (y * -1).toString();
         this.integral += "(" + coeff + ")" + "x^" + y.toString();
       }
 
+      //When turning constant into an 'x' term
       if(x !== 0 && y === 1){
         this.integral += x.toString() + "x";
       }
 
+      //When x and y are equal and for when x and y are not equal
       if(x === y){
         this.integral += "x" + y.toString();
       }else if(y !== 1 && coeff === ""){
         this.integral += "(" + x.toString() + "/" + y.toString() + ")" + "x^" + y.toString();
       }
+      //Covering different situations
 
       if(i !== length - 1){
         this.integral += " + ";
@@ -108,9 +119,11 @@ export class IntegrateComponent implements OnInit {
 
     this.integral += " + c";
 
+    //Cleaning up
     if(this.integral.includes(" + (-")){
       this.integral = this.integral.replace(" + (-", " - (");
     }
+    //Cleaning up
 
     if(poly !== ""){
       this.polynomial.setEquation(poly);
