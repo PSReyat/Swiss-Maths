@@ -76,17 +76,16 @@ export class IntegrateComponent implements OnInit {
         y = 0;
       }
 
+      y = y + 1;
+
       if(x < 0 && y < 0){
         coeff = (x * -1).toString() + "/" + (y * -1).toString();
         this.integral += "(" + coeff + ")" + "x^" + y.toString();
       }
 
-      if(x !== 0 && y === 0){
+      if(x !== 0 && y === 1){
         this.integral += x.toString() + "x";
       }
-
-      y = y + 1;
-      this.integralValue += this.definiteIntegral(this.upperLimit, this.lowerLimit, x/y, y);
 
       if(x === y){
         this.integral += "x" + y.toString();
@@ -97,9 +96,12 @@ export class IntegrateComponent implements OnInit {
       if(i !== length - 1){
         this.integral += " + ";
       }
+      
+      this.integralValue += this.definiteIntegral(this.upperLimit, this.lowerLimit, x/y, y);
 
       xParse = "";
       yParse = "";
+      coeff = "";
 
     }
     //parsing and integration functionality
@@ -107,9 +109,7 @@ export class IntegrateComponent implements OnInit {
     this.integral += " + c";
 
     if(this.integral.includes(" + (-")){
-      console.log("contains: yes");
       this.integral = this.integral.replace(" + (-", " - (");
-      console.log("After edit: " + this.integral);
     }
 
     if(poly !== ""){
@@ -132,12 +132,6 @@ export class IntegrateComponent implements OnInit {
     this.integralSecond = coeff * Math.pow(lower, power);
 
     return this.integralFirst - this.integralSecond;
-
   }
 
 }
-
-/*
-3) definite integrals
-4) 1/x
-*/
